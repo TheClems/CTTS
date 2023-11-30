@@ -22,3 +22,10 @@ $('#nav-toggle').click(function(){
     $(this).toggleClass('is-active')
     $('ul.nav').toggleClass('show');
 });
+
+
+//pop up email link
+
+function email_click() {
+    alert("Vous pouvez me contactez à l'addresse suivante :\ncontact@ctts.fr");
+}
