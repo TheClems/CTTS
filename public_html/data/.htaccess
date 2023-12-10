@@ -1,0 +1,8 @@
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW PWPROTECTID:hwu8ddg1a7
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile /home/u841377196/domains/ctts.fr/public_html/data/.htpasswd
+Require valid-user
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE hwu8ddg1a7:PWPROTECTID
+
