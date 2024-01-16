@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Répartition des dépenses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Répartition des dépenses</h1>
+<div id="container" class="container">
+
+    <div class="container_family">
+        <label for="family1"><h2>Famille 1</h2></label>
+        <input type="text" id="family1" placeholder="Nom" required>
+        <input type="number" id="members1" placeholder="Nombre de personnes" required>
+        <input type="number" id="expenses1" placeholder="Dépenses totales (en €)" required>
+        <div id="resultFamily1"></div>
+    </div>
+
+    <div class="container_family">
+        <label for="family2"><h2>Famille 2</h2></label>
+        <input type="text" id="family2" placeholder="Nom" required>
+        <input type="number" id="members2" placeholder="Nombre de personnes" required>
+        <input type="number" id="expenses2" placeholder="Dépenses totales (en €)">
+        <div id="resultFamily2"></div>
+    </div>
+
+    <div class="container_family">
+        <label for="family3"><h2>Famille 3</h2></label>
+        <input type="text" id="family3" placeholder="Nom" required>
+        <input type="number" id="members3" placeholder="Nombre de personnes" required>
+        <input type="number" id="expenses3" placeholder="Dépenses totales (en €)" required>
+        <div id="resultFamily3"></div>
+    </div>
+
+</div>
+
+<div id="result"></div>
+<div id="remboursement"></div>
+
+<button onclick="calculate()">Calculer</button> 
+
+<script src="script.js"></script>
+</body>
+</html>
