@@ -64,6 +64,7 @@ label{
     color: #170444;
     font-weight: 600;
     letter-spacing: 0.6px;
+    font-size: 1.5vw;
 }
 
 .box{
@@ -97,6 +98,10 @@ label{
 
     .wrapper-2 input, .wrapper-3 input{
         width: 100%;
+        font-size: 4vw;
+    }
+
+    label {
         font-size: 4vw;
     }
 }
