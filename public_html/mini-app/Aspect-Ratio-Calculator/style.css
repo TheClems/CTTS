@@ -8,13 +8,13 @@
 }
 
 body{
-    background-color: #895cf3;
+    background-color: #695aa6;
 }
 
 .container{
-    width: 500px;
+    width: 50vw;
     background: #fff;
-    padding: 80px 40px;
+    padding: 6vh 4vw;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -25,9 +25,9 @@ body{
 
 h2{
     text-align: center;
-    font-size: 40px;
+    font-size: 3vw;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 0.2vw;
 }
 
 h2 span{
@@ -38,18 +38,18 @@ h2 span{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px 0 70px 0;
-    gap: 10px;
+    margin: 5vh 0 7vh 0;
+    gap: 1vh;
 }
 
 .wrapper-1 input{
-    width: 100px;
-    font-size: 30px;
+    width: 6vw;
+    font-size: 1.5vw;
     font-weight: 600;
 }
 
 input{
-    padding: 15px 10px;
+    padding: 2vh 0.6vw;
     border: 1px solid #bbc0c5;
     border-radius: 5px;
     color: #170444;
@@ -68,11 +68,35 @@ label{
 
 .box{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 15px;
 }
 
 .wrapper-2 input, .wrapper-3 input{
     width: 100%;
-    font-size: 18px;
+    font-size: 0.8vw;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90vw;
+    }
+
+    h2 {
+        font-size: 8vw;
+    }
+
+    input {
+        padding: 2vh 2vw;
+    }
+
+    .wrapper-1 input{
+        width: 15vw;
+        font-size: 6vw;
+    }
+
+    .wrapper-2 input, .wrapper-3 input{
+        width: 100%;
+        font-size: 4vw;
+    }
 }
