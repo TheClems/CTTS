@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur 404 | CTTS.FR</title>
+    <style>
+        body {
+            background-color: #000;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+			width: 99vw;
+			padding: 0 3vw 3vw 3vw;
+            text-align: center;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 14vw;
+            background-color: #000;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4vw;
+            color: #e74c3c;
+            margin: 0;
+            margin-left: -10%;
+        }
+
+		p {
+			font-size: 1.8vw;
+		}
+
+        p span {
+            color: #000;
+        }
+
+        .command-line {
+			width: 90%;
+            text-align: left;
+            margin: 0;
+        }
+
+        #inputContainer {
+            width: 90%;
+            text-align: left;
+            margin: 1vw 0 1vw 0;
+        }
+
+        .command-text {
+            font-size: 1.8vw;
+            margin-right: 10px;
+        }
+
+        .input-line {
+            display: flex;
+            justify-content: left;
+			align-items: center;
+            margin-top: 20px;
+        }
+
+        .input-line input {
+            background: none;
+            border: none;
+            outline: none;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            width: 80%;
+			font-size: 1.8vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sticky">
+            <h1>Erreur 404</h1>
+            <div class="command-line">
+                <p>Oups! La page que vous recherchez semble avoir pris des vacances.</p>
+                <p><b>help</b> pour voir les commandes.   <span>Bien vu Sherlock !</span></p>
+            </div>
+        </div>
+        <div id="inputContainer">
+            <div class="input-line">
+                <span class="command-text">&rsaquo; </span>
+                <input type="text" placeholder="" onkeydown="handleKeyPress(event)">
+            </div>
+        </div>
+    </div>
+
+
+	<script>
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                processCommand();
+            }
+        }
+    
+        function processCommand() {
+            const inputElements = document.querySelectorAll(".input-line input");
+            const lastInput = inputElements[inputElements.length - 1];
+            const command = lastInput.value.trim();
+    
+            if (command !== "") {
+                if (command === "home") {
+                    goToHomePage()
+                } else if (command === "help") {
+                    displayHelp();
+                } else if (command.startsWith("-g ")) {
+                    const pageName = command.substring(3);
+                    navigateToPage(pageName);
+                } else if (command === "ls") {
+                    displayPageList();
+                } else {
+                    addNewLine();
+                }
+            } else {
+                addNewLine();
+            }
+        }
+    
+        function displayHelp() {
+            // Display the list of available commands on the page
+            const helpMessage = `
+                <b>Liste des commandes</b><br>
+                <b>help</b> : Affiche la liste des commandes.<br>
+                <b>home</b> : Envoie vers la page d'accueil.<br>
+                <b>ls</b> : Affiche la liste des pages.<br>
+                <b>-g [page]</b> : Va à la page demandée.<br>
+            `;
+    
+            // Create a new output line for help message
+            const inputContainer = document.getElementById("inputContainer");
+            const newOutputLine = document.createElement("div");
+            newOutputLine.className = "input-line output-line";
+            newOutputLine.innerHTML = `
+                <span class="command-text">${helpMessage}</span>
+            `;
+    
+            inputContainer.appendChild(newOutputLine);
+    
+            // Add a new input line for the next command
+            addNewLine();
+        }
+    
+        function goToHomePage() {
+            window.location.href = "index.html";
+        }
+
+        function navigateToPage(pageName) {
+            window.location.href = pageName + ".html";
+        }
+    
+        function displayPageList() {
+            const pageList = `
+                <b>Liste des pages</b><br>
+                <b>index</b> : Page d'accueil.<br>
+                <b>modelisation</b> : Mes modélisations 3D.<br>
+                <b>informatique</b> : Mes projets informatiques.<br>
+                <b>mini-app/index</b> : Mes mini-apps en HTML CSS et JS.<br>
+            `;
+    
+            const inputContainer = document.getElementById("inputContainer");
+            const newOutputLine = document.createElement("div");
+            newOutputLine.className = "input-line output-line";
+            newOutputLine.innerHTML = `
+                <span class="command-text">${pageList}</span>
+            `;
+    
+            inputContainer.appendChild(newOutputLine);
+    
+            // Add a new input line for the next command
+            addNewLine();
+        }
+    
+        function addNewLine() {
+            const inputContainer = document.getElementById("inputContainer");
+            const newInputLine = document.createElement("div");
+            newInputLine.className = "input-line";
+            newInputLine.innerHTML = `
+                <span class="command-text">&rsaquo;</span>
+                <input type="text" placeholder="" onkeydown="handleKeyPress(event)">
+            `;
+    
+            inputContainer.appendChild(newInputLine);
+            newInputLine.querySelector("input").focus();
+        }
+    
+        // Initial focus on the first input
+        document.querySelector(".input-line input").focus();
+    </script>
+
+</body>
+</html>
